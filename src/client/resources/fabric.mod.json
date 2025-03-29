@@ -10,7 +10,7 @@
 	"contact": {
 		"sources": "https://github.com/Wiamotit1e/AutoSwapLowDurabilityElytra"
 	},
-	"license": "CC0-1.0",
+	"license": "MIT",
 	"icon": "assets/wiamautoswaplowadurabilityelytra/icon.png",
 	"environment": "*",
 	"entrypoints": {
