@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "wiamautoswaplowadurabilityelytra",
+	"version": "1.0.0",
+	"name": "AutoSwapLowDurabilityElytra",
+	"description": "Say thanks to out glorious general secretary, Wiamotit1e, who produced such a wonderful mod which is using in auto swap out elytra when durability is low when finding the evilest capitalist base!!!",
+	"authors": [
+		"Wiamotit1e"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/wiamautoswaplowadurabilityelytra/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"client": [
+			"wiam.wiamautoswaplowadurabilityelytra.WiamModClient"
+		],
+		"modmenu": [
+			"wiam.wiamautoswaplowadurabilityelytra.config.ModMenuCompat"
+		]
+	},
+	"mixins": [
+		{
+			"config": "wiamautoswaplowadurabilityelytra.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.15.10",
+		"minecraft": "~1.21",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"modmenu": "*"
+	}
+}

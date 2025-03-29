@@ -1,0 +1,6 @@
+{
+  "message.wiamautoswaplowadurabilityelytra.success_swap" : "[Auto Swap Low Durability Elytra] Success swap",
+  "text.autoconfig.wiamautoswaplowadurabilityelytra.title" : "Setting",
+  "text.autoconfig.wiamautoswaplowadurabilityelytra.option.lowestDurabilityWhenSwap" : "lowestDurabilityWhenSwap",
+  "text.autoconfig.wiamautoswaplowadurabilityelytra.option.isAutoSwapOn" : "isAutoSwapOn"
+}
