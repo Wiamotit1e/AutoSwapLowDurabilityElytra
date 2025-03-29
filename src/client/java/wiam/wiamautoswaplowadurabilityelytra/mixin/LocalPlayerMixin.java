@@ -36,6 +36,7 @@ public abstract class LocalPlayerMixin extends AbstractClientPlayer {
     }
 
 
+    //Copyright (c) 2023 NimajnebEC
     //From: https://github.com/brooke-ec/auto-elytra
     @Unique
     public void wiam$swapSlots(int slotA, int slotB) {
