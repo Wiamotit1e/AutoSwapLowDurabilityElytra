@@ -63,14 +63,10 @@ public abstract class LocalPlayerMixin extends AbstractClientPlayer {
     @Inject( at = @At("TAIL"), method = "tick")
     public void tickMixin(CallbackInfo ci) {
         if(!(AutoConfig.getConfigHolder(ModConfig.class).getConfig()).isAutoSwapOn) return;
-        if (!(this.getInventory().armor.get(2).getItem() instanceof ElytraItem)) {
-            return;
-        }
+        if (!(this.getInventory().armor.get(2).getItem() instanceof ElytraItem)) return;
         int maxDurability = this.getInventory().armor.get(2).getMaxDamage();
         int lowestDurabilityWhenSwap = AutoConfig.getConfigHolder(ModConfig.class).getConfig().lowestDurabilityWhenSwap;
-        if(this.getInventory().armor.get(2).getDamageValue() <= maxDurability - lowestDurabilityWhenSwap) {
-            return;
-        }
+        if(this.getInventory().armor.get(2).getDamageValue() <= maxDurability - lowestDurabilityWhenSwap) return;
         for (int i = 0; i < this.getInventory().items.size(); i++) {
             if((this.getInventory().items.get(i).getItem() instanceof ElytraItem) && this.getInventory().items.get(i).getDamageValue() < maxDurability - lowestDurabilityWhenSwap) {
                 Component message = Component.translatable("message.wiamautoswaplowadurabilityelytra.success_swap").withStyle(ChatFormatting.BLUE);
@@ -80,7 +76,6 @@ public abstract class LocalPlayerMixin extends AbstractClientPlayer {
             }
         }
     }
-
 }
 
 
