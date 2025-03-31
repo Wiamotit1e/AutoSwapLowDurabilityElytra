@@ -1,9 +1,9 @@
 {
 	"required": true,
-	"package": "wiam.wiamautoswaplowadurabilityelytra.mixin",
+	"package": "wiam.wiamautoswaplowdurabilityelytra.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"client": [
-		"LocalPlayerMixin"
+		"ClientPlayerEntityMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

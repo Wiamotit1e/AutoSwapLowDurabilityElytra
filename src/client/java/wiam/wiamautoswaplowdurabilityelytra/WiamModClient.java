@@ -1,12 +1,12 @@
-package wiam.wiamautoswaplowadurabilityelytra;
+package wiam.wiamautoswaplowdurabilityelytra;
 
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 import net.fabricmc.api.ClientModInitializer;
-import wiam.wiamautoswaplowadurabilityelytra.config.ModConfig;
+import wiam.wiamautoswaplowdurabilityelytra.config.ModConfig;
 
 public class WiamModClient implements ClientModInitializer {
-	public static final String MOD_ID = "wiamautoswaplowadurabilityelytra";
+	public static final String MOD_ID = "wiamautoswaplowdurabilityelytra";
 
 
 	@Override

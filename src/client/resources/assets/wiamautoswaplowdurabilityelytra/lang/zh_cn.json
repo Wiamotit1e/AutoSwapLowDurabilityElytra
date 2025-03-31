@@ -1,0 +1,6 @@
+{
+  "message.wiamautoswaplowdurabilityelytra.success_swap" : "[Auto Swap Low Durability Elytra] 交换成功",
+  "text.autoconfig.wiamautoswaplowdurabilityelytra.title" : "设置",
+  "text.autoconfig.wiamautoswaplowdurabilityelytra.option.lowestDurabilityWhenSwap" : "交换时耐久",
+  "text.autoconfig.wiamautoswaplowdurabilityelytra.option.isAutoSwapOn" : "交换开启了吗"
+}

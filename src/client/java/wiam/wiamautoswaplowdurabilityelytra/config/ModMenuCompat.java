@@ -1,4 +1,4 @@
-package wiam.wiamautoswaplowadurabilityelytra.config;
+package wiam.wiamautoswaplowdurabilityelytra.config;
 
 import com.terraformersmc.modmenu.api.ConfigScreenFactory;
 import com.terraformersmc.modmenu.api.ModMenuApi;

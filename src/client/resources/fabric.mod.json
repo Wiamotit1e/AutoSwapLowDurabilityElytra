@@ -1,6 +1,6 @@
 {
 	"schemaVersion": 1,
-	"id": "wiamautoswaplowadurabilityelytra",
+	"id": "wiamautoswaplowdurabilityelytra",
 	"version": "1.0.0",
 	"name": "AutoSwapLowDurabilityElytra",
 	"description": "Say thanks to out glorious general secretary, Wiamotit1e, who produced such a wonderful mod which is using in auto swap out elytra when durability is low when finding the evilest capitalist base!!!",
@@ -11,19 +11,19 @@
 		"sources": "https://github.com/Wiamotit1e/AutoSwapLowDurabilityElytra"
 	},
 	"license": "MIT",
-	"icon": "assets/wiamautoswaplowadurabilityelytra/icon.png",
+	"icon": "assets/wiamautoswaplowdurabilityelytra/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"client": [
-			"wiam.wiamautoswaplowadurabilityelytra.WiamModClient"
+			"wiam.wiamautoswaplowdurabilityelytra.WiamModClient"
 		],
 		"modmenu": [
-			"wiam.wiamautoswaplowadurabilityelytra.config.ModMenuCompat"
+			"wiam.wiamautoswaplowdurabilityelytra.config.ModMenuCompat"
 		]
 	},
 	"mixins": [
 		{
-			"config": "wiamautoswaplowadurabilityelytra.client.mixins.json",
+			"config": "wiamautoswaplowdurabilityelytra.client.mixins.json",
 			"environment": "client"
 		}
 	],
