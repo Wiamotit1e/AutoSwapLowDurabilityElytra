@@ -10,20 +10,18 @@ import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.world.ClientWorld;
 import net.minecraft.item.ElytraItem;
-import net.minecraft.screen.slot.Slot;
-import net.minecraft.screen.slot.SlotActionType;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
-import net.minecraft.util.collection.DefaultedList;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import wiam.wiamautoswaplowdurabilityelytra.config.ModConfig;
 import wiam.wiamautoswaplowdurabilityelytra.manager.AutoSwapElytraManager;
+
+import java.util.Objects;
 
 @Mixin(value = ClientPlayerEntity.class)
 public abstract class ClientPlayerEntityMixin extends AbstractClientPlayerEntity {
@@ -54,7 +52,7 @@ public abstract class ClientPlayerEntityMixin extends AbstractClientPlayerEntity
         configHolder.getConfig().isAutoLogOutOn = false;
         configHolder.save();
         client.execute(() ->{
-            client.getNetworkHandler().getConnection().disconnect(Text.translatable("message.wiamautoswaplowdurabilityelytra.disconnect").formatted(Formatting.BLUE, Formatting.BOLD));
+            Objects.requireNonNull(client.getNetworkHandler()).getConnection().disconnect(Text.translatable("message.wiamautoswaplowdurabilityelytra.disconnect").formatted(Formatting.BLUE, Formatting.BOLD));
             client.setScreen(new TitleScreen());
         });
     }

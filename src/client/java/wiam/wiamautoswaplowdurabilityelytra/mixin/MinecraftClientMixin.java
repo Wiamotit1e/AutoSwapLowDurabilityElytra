@@ -2,7 +2,6 @@ package wiam.wiamautoswaplowdurabilityelytra.mixin;
 
 
 import net.minecraft.client.MinecraftClient;
-import org.slf4j.LoggerFactory;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
