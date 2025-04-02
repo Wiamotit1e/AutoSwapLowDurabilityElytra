@@ -22,7 +22,7 @@ A utility mod that automatically detects and replaces low-durability elytra, fea
 
 ## Requirements
 
-- Minecraft 1.20.4+
+- Minecraft 1.21
 - Fabric Loader
 - Fabric API
 - Cloth Config API
