@@ -24,7 +24,7 @@
 
 ## 安装要求
 
-- Minecraft 1.20.4+
+- Minecraft 1.21
 - Fabric Loader
 - Fabric API
 - Cloth Config API
