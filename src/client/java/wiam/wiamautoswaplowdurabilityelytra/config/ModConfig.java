@@ -20,4 +20,6 @@ public class ModConfig implements ConfigData {
     public int swapRandomMaxMillisecond = 600;
 
     public int swapRandomDurability = 3;
+
+    public int lowestYCoordinateWhenLogOut = 1000;
 }

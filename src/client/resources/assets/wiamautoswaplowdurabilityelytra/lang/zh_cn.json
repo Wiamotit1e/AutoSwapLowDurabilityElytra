@@ -1,12 +1,13 @@
 {
-  "message.wiamautoswaplowdurabilityelytra.success_swap": "[自动更换低耐久鞘翅] 已成功更换鞘翅",
-  "message.wiamautoswaplowdurabilityelytra.disconnect": "[自动保护] 已断开连接",
+  "message.wiamautoswaplowdurabilityelytra.success_swap": "[自动更换] 鞘翅已成功更换",
+  "message.wiamautoswaplowdurabilityelytra.disconnect": "[自动保护] 已与服务器断开连接",
   "text.autoconfig.wiamautoswaplowdurabilityelytra.title": "鞘翅自动更换配置",
-  "text.autoconfig.wiamautoswaplowdurabilityelytra.option.lowestDurabilityWhenSwap": "触发更换耐久阈值",
+  "text.autoconfig.wiamautoswaplowdurabilityelytra.option.lowestDurabilityWhenSwap": "最低更换耐久值",
   "text.autoconfig.wiamautoswaplowdurabilityelytra.option.isAutoSwapOn": "启用自动更换",
   "text.autoconfig.wiamautoswaplowdurabilityelytra.option.lowestDurabilityWhenLogOut": "断连保护耐久阈值",
   "text.autoconfig.wiamautoswaplowdurabilityelytra.option.isAutoLogOutOn": "启用自动断连保护",
-  "text.autoconfig.wiamautoswaplowdurabilityelytra.option.swapRandomMinMillisecond": "更换最小随机延迟（毫秒）",
-  "text.autoconfig.wiamautoswaplowdurabilityelytra.option.swapRandomMaxMillisecond": "更换最大随机延迟（毫秒）",
-  "text.autoconfig.wiamautoswaplowdurabilityelytra.option.swapRandomDurability": "随机更换耐久范围"
+  "text.autoconfig.wiamautoswaplowdurabilityelytra.option.swapRandomMinMillisecond": "随机延迟最小值（毫秒）",
+  "text.autoconfig.wiamautoswaplowdurabilityelytra.option.swapRandomMaxMillisecond": "随机延迟最大值（毫秒）",
+  "text.autoconfig.wiamautoswaplowdurabilityelytra.option.swapRandomDurability": "耐久随机浮动范围",
+  "text.autoconfig.wiamautoswaplowdurabilityelytra.option.lowestYCoordinateWhenLogOut": "断连保护最低Y坐标"
 }

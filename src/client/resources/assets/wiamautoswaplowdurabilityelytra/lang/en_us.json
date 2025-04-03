@@ -1,12 +1,13 @@
 {
   "message.wiamautoswaplowdurabilityelytra.success_swap": "[Auto Swap] Elytra successfully replaced",
   "message.wiamautoswaplowdurabilityelytra.disconnect": "[Auto Protection] Disconnected from server",
-  "text.autoconfig.wiamautoswaplowdurabilityelytra.title": "Auto Elytra Swap Settings",
-  "text.autoconfig.wiamautoswaplowdurabilityelytra.option.lowestDurabilityWhenSwap": "Swap Durability Threshold",
+  "text.autoconfig.wiamautoswaplowdurabilityelytra.title": "Elytra Auto-Swap Configuration",
+  "text.autoconfig.wiamautoswaplowdurabilityelytra.option.lowestDurabilityWhenSwap": "Minimum Swap Durability Threshold",
   "text.autoconfig.wiamautoswaplowdurabilityelytra.option.isAutoSwapOn": "Enable Auto-Swap",
   "text.autoconfig.wiamautoswaplowdurabilityelytra.option.lowestDurabilityWhenLogOut": "Disconnect Protection Threshold",
   "text.autoconfig.wiamautoswaplowdurabilityelytra.option.isAutoLogOutOn": "Enable Auto-Disconnect Protection",
   "text.autoconfig.wiamautoswaplowdurabilityelytra.option.swapRandomMinMillisecond": "Minimum Random Delay (ms)",
   "text.autoconfig.wiamautoswaplowdurabilityelytra.option.swapRandomMaxMillisecond": "Maximum Random Delay (ms)",
-  "text.autoconfig.wiamautoswaplowdurabilityelytra.option.swapRandomDurability": "Random Durability Range"
+  "text.autoconfig.wiamautoswaplowdurabilityelytra.option.swapRandomDurability": "Durability Randomization Range",
+  "text.autoconfig.wiamautoswaplowdurabilityelytra.option.lowestYCoordinateWhenLogOut": "Minimum Y Coordinate for Disconnect Protection"
 }

@@ -1,4 +1,4 @@
-package wiam.wiamautoswaplowdurabilityelytra.manager;
+package wiam.wiamautoswaplowdurabilityelytra.feature;
 
 
 import me.shedaniel.autoconfig.AutoConfig;
@@ -10,14 +10,13 @@ import net.minecraft.screen.slot.SlotActionType;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.collection.DefaultedList;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import wiam.wiamautoswaplowdurabilityelytra.config.ModConfig;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class AutoSwapElytraManager {
+public class AutoSwapElytra {
 
     public volatile static boolean isSwapProcessing = false;
 
@@ -27,6 +26,7 @@ public class AutoSwapElytraManager {
 
     private static void swapSlots(int slotA, int slotB, ClientPlayerEntity player) {
 
+        isSwapProcessing = true;
         // Convert inventory slot to menu slot
         DefaultedList<Slot> slots = player.playerScreenHandler.slots;
         int slotAMenu = -1;
@@ -43,7 +43,6 @@ public class AutoSwapElytraManager {
         int finalSlotBMenu = slotBMenu;
         ModConfig config = AutoConfig.getConfigHolder(ModConfig.class).getConfig();
         new Thread(() -> {
-            isSwapProcessing = true;
             try {
                 int delay1 = rand.nextInt(config.swapRandomMaxMillisecond - config.swapRandomMinMillisecond) + config.swapRandomMinMillisecond;
                 int delay2 = rand.nextInt(config.swapRandomMaxMillisecond - config.swapRandomMinMillisecond) + config.swapRandomMinMillisecond;
@@ -72,18 +71,20 @@ public class AutoSwapElytraManager {
     }
 
 
-    public static void execute(CallbackInfo ci) {
+    public static void execute() {
         if(!check()) return;
         ClientPlayerEntity player = MinecraftClient.getInstance().player;
         List<Integer> list = new ArrayList<>();
-        for (int i = 0; i < player.getInventory().main.size(); i++)
-            if ((player.getInventory().main.get(i).getItem() instanceof ElytraItem) && player.getInventory().main.get(i).getDamage() < getLowestDurability()) list.add(i);
+        if (player != null) {
+            for (int i = 0; i < player.getInventory().main.size(); i++)
+                if ((player.getInventory().main.get(i).getItem() instanceof ElytraItem) && player.getInventory().main.get(i).getDamage() < getLowestDurability()) list.add(i);
+        }
         if(list.isEmpty()) return;
         swapSlots(list.get(rand.nextInt(list.size())), 38, player);
     }
 
     private static boolean check(){
-        assert MinecraftClient.getInstance().player != null;
+        if (MinecraftClient.getInstance().player == null) return false;
         if(!(AutoConfig.getConfigHolder(ModConfig.class).getConfig()).isAutoSwapOn) return false;
         if (!(MinecraftClient.getInstance().player.getInventory().armor.get(2).getItem() instanceof ElytraItem)) return false;
         if(MinecraftClient.getInstance().player.getInventory().armor.get(2).getDamage() <= getLowestDurability()) return false;
