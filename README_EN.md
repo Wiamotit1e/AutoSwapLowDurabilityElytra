@@ -15,7 +15,7 @@ A practical mod that automatically detects and replaces low-durability elytra, f
   Real-time Y-coordinate monitoring with automatic disconnect when exceeding safe altitude
 - ⚙️ **Customizable Parameters**
   - Set durability threshold for swapping
-  - Randomized operation delays (prevents anti-cheat detection)
+  - Randomized operation delays
   - Dual auto-logout system (triggers on critical durability/abnormal altitude)
 - 🖥️ **Mod Menu Integration**  
   Easy in-game configuration via GUI
