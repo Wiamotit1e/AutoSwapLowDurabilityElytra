@@ -1,24 +1,22 @@
 # AutoSwapLowDurabilityElytra - 自动鞘翅替换模组
 
-
 [English](README_EN.md) | [中文](README.md)
-
 
 ![Minecraft](https://img.shields.io/badge/Minecraft-1.21+-green?style=flat-square)
 [![Mod Loader](https://img.shields.io/badge/Fabric-Loader-blue?style=flat-square)](https://fabricmc.net/)
 
 自动检测并替换低耐久鞘翅的实用模组，支持自定义耐久阈值和热插拔配置。
 
-
-
 ## 功能特性
 
 - 🪂 **自动更换鞘翅**  
   当装备的鞘翅耐久低于阈值时，自动从背包寻找备用鞘翅进行更换
+- 🛑 **坠落保护机制**  
+  实时监测Y坐标，当高度超过安全阈值时自动断开连接
 - ⚙️ **可配置参数**
   - 设置更换触发耐久值
   - 随机化操作延迟（防止被反作弊检测）
-  - 自动登出功能（耐久过低时自动断开连接）
+  - 双重自动登出功能（耐久过低/高度异常时断开连接）
 - 🖥️ **Mod Menu集成**  
   通过游戏内图形界面轻松配置参数
 
@@ -51,19 +49,15 @@ swapRandomDurability: 3        # 耐久随机偏移值
 
 # 自动登出设置 
 lowestDurabilityWhenLogOut: 10 # 触发登出的耐久阈值
+lowestYCoordinateWhenLogOut: 1000 # 坠落保护触发高度
 isAutoLogOutOn: false          # 启用自动登出
 ```
 
-
 ## 注意事项
 
-
-- 在服务器里小心使用，被 Ban 了我可不管
-
-- 建议保持随机延迟的合理范围
-
-- 自动登出功能会直接断开服务器连接
-
+- 在服务器中使用时请谨慎，被 Ban 我可管不着
+- 建议保持随机延迟在200-800ms的合理范围
+- 自动登出会直接断开服务器连接并返回主界面
 
 ## 许可证
 
