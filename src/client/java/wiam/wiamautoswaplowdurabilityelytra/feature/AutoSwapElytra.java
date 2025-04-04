@@ -55,8 +55,11 @@ public class AutoSwapElytra {
             } finally {
                 isSwapProcessing = false;
                 randomDurability = rand.nextInt(config.swapRandomDurability);
-                Text message = Text.translatable("message.wiamautoswaplowdurabilityelytra.success_swap").formatted(Formatting.BLUE);
-                player.sendMessage(message);
+                MinecraftClient.getInstance().execute( () -> {
+                    Text message = Text.translatable("message.wiamautoswaplowdurabilityelytra.success_swap").formatted(Formatting.BLUE);
+                    player.sendMessage(message);
+                        }
+                );
             }
         }).start();
 
