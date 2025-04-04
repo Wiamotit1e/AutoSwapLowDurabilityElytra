@@ -15,7 +15,6 @@ import wiam.wiamautoswaplowdurabilityelytra.config.ModConfig;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
 public class AutoSwapElytra {
 
     public volatile static boolean isSwapProcessing = false;
@@ -75,10 +74,9 @@ public class AutoSwapElytra {
         if(!check()) return;
         ClientPlayerEntity player = MinecraftClient.getInstance().player;
         List<Integer> list = new ArrayList<>();
-        if (player != null) {
-            for (int i = 0; i < player.getInventory().main.size(); i++)
-                if ((player.getInventory().main.get(i).getItem() instanceof ElytraItem) && player.getInventory().main.get(i).getDamage() < getLowestDurability()) list.add(i);
-        }
+        for (int i = 0; i < player.getInventory().main.size(); i++)
+            if ((player.getInventory().main.get(i).getItem() instanceof ElytraItem) && player.getInventory().main.get(i).getDamage() < getLowestDurability())
+                list.add(i);
         if(list.isEmpty()) return;
         swapSlots(list.get(rand.nextInt(list.size())), 38, player);
     }
@@ -92,3 +90,4 @@ public class AutoSwapElytra {
         return true;
     }
 }
+
