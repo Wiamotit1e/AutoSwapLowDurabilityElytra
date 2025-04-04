@@ -4,7 +4,7 @@ package wiam.wiamautoswaplowdurabilityelytra.feature;
 import me.shedaniel.autoconfig.AutoConfig;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
-import net.minecraft.item.ElytraItem;
+import net.minecraft.item.Items;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.screen.slot.SlotActionType;
 import net.minecraft.text.Text;
@@ -56,7 +56,7 @@ public class AutoSwapElytra {
                 isSwapProcessing = false;
                 randomDurability = rand.nextInt(config.swapRandomDurability);
                 Text message = Text.translatable("message.wiamautoswaplowdurabilityelytra.success_swap").formatted(Formatting.BLUE);
-                player.sendMessage(message);
+                player.sendMessage(message , false);
             }
         }).start();
 
@@ -75,7 +75,7 @@ public class AutoSwapElytra {
         ClientPlayerEntity player = MinecraftClient.getInstance().player;
         List<Integer> list = new ArrayList<>();
         for (int i = 0; i < player.getInventory().main.size(); i++)
-            if ((player.getInventory().main.get(i).getItem() instanceof ElytraItem) && player.getInventory().main.get(i).getDamage() < getLowestDurability())
+            if ((player.getInventory().main.get(i).getItem()  == Items.ELYTRA) && player.getInventory().main.get(i).getDamage() < getLowestDurability())
                 list.add(i);
         if(list.isEmpty()) return;
         swapSlots(list.get(rand.nextInt(list.size())), 38, player);
@@ -84,7 +84,7 @@ public class AutoSwapElytra {
     private static boolean check(){
         if (MinecraftClient.getInstance().player == null) return false;
         if(!(AutoConfig.getConfigHolder(ModConfig.class).getConfig()).isAutoSwapOn) return false;
-        if (!(MinecraftClient.getInstance().player.getInventory().armor.get(2).getItem() instanceof ElytraItem)) return false;
+        if (!(MinecraftClient.getInstance().player.getInventory().armor.get(2).getItem() == Items.ELYTRA)) return false;
         if(MinecraftClient.getInstance().player.getInventory().armor.get(2).getDamage() <= getLowestDurability()) return false;
         if(isSwapProcessing) return false;
         return true;

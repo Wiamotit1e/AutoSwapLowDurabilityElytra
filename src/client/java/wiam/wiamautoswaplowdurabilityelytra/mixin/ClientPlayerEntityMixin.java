@@ -9,7 +9,7 @@ import net.minecraft.client.gui.screen.TitleScreen;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.world.ClientWorld;
-import net.minecraft.item.ElytraItem;
+import net.minecraft.item.Items;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import org.spongepowered.asm.mixin.Final;
@@ -28,7 +28,7 @@ public abstract class ClientPlayerEntityMixin extends AbstractClientPlayerEntity
     @Final
     protected MinecraftClient client;
 
-    @Shadow public abstract void sendMessage(Text message);
+    @Shadow public abstract void sendMessage(Text message , boolean overlay);
 
     public ClientPlayerEntityMixin(ClientWorld world, GameProfile gameProfile) {
         super(world, gameProfile);
@@ -42,7 +42,7 @@ public abstract class ClientPlayerEntityMixin extends AbstractClientPlayerEntity
     @Inject( at = @At("TAIL"), method = "tick")
     public void logOffWhenElytraNotGood(CallbackInfo ci) {
         if(!(AutoConfig.getConfigHolder(ModConfig.class).getConfig()).isAutoLogOutOn) return;
-        if (!(this.getInventory().armor.get(2).getItem() instanceof ElytraItem)) return;
+        if (!(this.getInventory().armor.get(2).getItem() == Items.ELYTRA)) return;
         int maxDurability = this.getInventory().armor.get(2).getMaxDamage();
         int lowestDurabilityWhenLogOut = AutoConfig.getConfigHolder(ModConfig.class).getConfig().lowestDurabilityWhenLogOut;
         if(this.getInventory().armor.get(2).getDamage() <= maxDurability - lowestDurabilityWhenLogOut) return;
