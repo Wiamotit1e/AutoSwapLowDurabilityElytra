@@ -58,8 +58,7 @@ public class AutoSwapElytra {
                 MinecraftClient.getInstance().execute( () -> {
                     Text message = Text.translatable("message.wiamautoswaplowdurabilityelytra.success_swap").formatted(Formatting.BLUE);
                     player.sendMessage(message);
-                        }
-                );
+                });
             }
         }).start();
 
