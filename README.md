@@ -22,10 +22,20 @@
 
 ## 安装要求
 
-- Minecraft 1.21
-- Fabric Loader
-- Fabric API
-- Cloth Config API
+- **模组版本 1.0.0**  
+  ▸ 支持的 Minecraft 版本：`1.21` 和 `1.21.1`  
+  ▸ 所需依赖：  
+  &nbsp;&nbsp;• Fabric Loader  
+  &nbsp;&nbsp;• Fabric API  
+  &nbsp;&nbsp;• Cloth Config API
+
+- **模组版本 1.0.1**  
+  ▸ 支持的 Minecraft 版本：`1.21.2`、`1.21.3` 和 `1.21.4`  
+  ▸ 所需依赖：  
+  &nbsp;&nbsp;• Fabric Loader  
+  &nbsp;&nbsp;• Fabric API  
+  &nbsp;&nbsp;• Cloth Config API
+
 
 ## 安装步骤
 
