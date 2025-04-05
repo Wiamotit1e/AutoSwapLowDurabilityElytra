@@ -4,6 +4,7 @@ package wiam.wiamautoswaplowdurabilityelytra.feature;
 import me.shedaniel.autoconfig.AutoConfig;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.Items;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.screen.slot.SlotActionType;
@@ -66,7 +67,7 @@ public class AutoSwapElytra {
 
     private static int getLowestDurability(){
         if(MinecraftClient.getInstance().player == null) return 0;
-        int maxDurability = MinecraftClient.getInstance().player.getInventory().armor.get(2).getMaxDamage();
+        int maxDurability = MinecraftClient.getInstance().player.getEquippedStack(EquipmentSlot.CHEST).getDamage();
         int lowestDurabilityWhenSwap = AutoConfig.getConfigHolder(ModConfig.class).getConfig().lowestDurabilityWhenSwap;
         return maxDurability - lowestDurabilityWhenSwap - randomDurability;
     }
@@ -76,8 +77,8 @@ public class AutoSwapElytra {
         if(!check()) return;
         ClientPlayerEntity player = MinecraftClient.getInstance().player;
         List<Integer> list = new ArrayList<>();
-        for (int i = 0; i < player.getInventory().main.size(); i++)
-            if ((player.getInventory().main.get(i).getItem()  == Items.ELYTRA) && player.getInventory().main.get(i).getDamage() < getLowestDurability())
+        for (int i = 0; i < player.getInventory().getMainStacks().size(); i++)
+            if ((player.getInventory().getMainStacks().get(i).getItem()  == Items.ELYTRA) && player.getInventory().getMainStacks().get(i).getDamage() < getLowestDurability())
                 list.add(i);
         if(list.isEmpty()) return;
         swapSlots(list.get(rand.nextInt(list.size())), 38, player);
@@ -86,8 +87,8 @@ public class AutoSwapElytra {
     private static boolean check(){
         if (MinecraftClient.getInstance().player == null) return false;
         if(!(AutoConfig.getConfigHolder(ModConfig.class).getConfig()).isAutoSwapOn) return false;
-        if (!(MinecraftClient.getInstance().player.getInventory().armor.get(2).getItem() == Items.ELYTRA)) return false;
-        if(MinecraftClient.getInstance().player.getInventory().armor.get(2).getDamage() <= getLowestDurability()) return false;
+        if (!(MinecraftClient.getInstance().player.getEquippedStack(EquipmentSlot.CHEST).getItem() == Items.ELYTRA)) return false;
+        if(MinecraftClient.getInstance().player.getEquippedStack(EquipmentSlot.CHEST).getDamage() <= getLowestDurability()) return false;
         if(isSwapProcessing) return false;
         return true;
     }
