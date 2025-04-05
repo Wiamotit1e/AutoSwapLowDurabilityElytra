@@ -35,6 +35,12 @@ A practical mod that automatically detects and replaces low-durability elytra, f
   &nbsp;&nbsp;• Fabric Loader  
   &nbsp;&nbsp;• Fabric API  
   &nbsp;&nbsp;• Cloth Config API
+- **Mod Version 1.0.2**  
+  ▸ Supported Minecraft Versions: `1.21.5` 
+  ▸ Required Dependencies:  
+  &nbsp;&nbsp;• Fabric Loader  
+  &nbsp;&nbsp;• Fabric API  
+  &nbsp;&nbsp;• Cloth Config API
 
 ## Installation
 
