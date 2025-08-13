@@ -37,7 +37,14 @@
   &nbsp;&nbsp;• Cloth Config API
 
 - **模组版本 1.0.2**  
-  ▸ 支持的 Minecraft 版本：`1.21.5`
+  ▸ 支持的 Minecraft 版本：`1.21.5` 和 `1.21.6`  
+  ▸ 所需依赖：  
+  &nbsp;&nbsp;• Fabric Loader  
+  &nbsp;&nbsp;• Fabric API  
+  &nbsp;&nbsp;• Cloth Config API
+
+  - **模组版本 1.0.3**  
+  ▸ 支持的 Minecraft 版本：`1.21.7` 和 `1.21.8`  
   ▸ 所需依赖：  
   &nbsp;&nbsp;• Fabric Loader  
   &nbsp;&nbsp;• Fabric API  
