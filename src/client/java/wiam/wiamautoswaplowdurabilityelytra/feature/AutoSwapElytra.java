@@ -5,6 +5,7 @@ import me.shedaniel.autoconfig.AutoConfig;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.screen.slot.SlotActionType;
@@ -65,32 +66,49 @@ public class AutoSwapElytra {
 
     }
 
-    private static int getLowestDurability(){
-        if(MinecraftClient.getInstance().player == null) return 0;
-        int maxDurability = MinecraftClient.getInstance().player.getEquippedStack(EquipmentSlot.CHEST).getDamage();
-        int lowestDurabilityWhenSwap = AutoConfig.getConfigHolder(ModConfig.class).getConfig().lowestDurabilityWhenSwap;
-        return maxDurability - lowestDurabilityWhenSwap - randomDurability;
+    //感谢 D 老师开源
+    private static int getRemainingDurability(ItemStack stack) {
+        if (stack == null) return 0;
+        int max = stack.getMaxDamage();       // 最大耐久值
+        int used = stack.getDamage();         // 已损耗值
+        return max - used;                   // 剩余耐久值
     }
 
-
     public static void execute() {
-        if(!check()) return;
+        if (!check()) return;
+
         ClientPlayerEntity player = MinecraftClient.getInstance().player;
-        List<Integer> list = new ArrayList<>();
-        for (int i = 0; i < player.getInventory().getMainStacks().size(); i++)
-            if ((player.getInventory().getMainStacks().get(i).getItem()  == Items.ELYTRA) && player.getInventory().getMainStacks().get(i).getDamage() < getLowestDurability())
-                list.add(i);
-        if(list.isEmpty()) return;
-        swapSlots(list.get(rand.nextInt(list.size())), 38, player);
+
+        // D 老师的神奇修复
+        List<Integer> validSlots = new ArrayList<>();
+        for (int i = 0; i < player.getInventory().getMainStacks().size(); i++) {
+            ItemStack stack = player.getInventory().getMainStacks().get(i);
+            if (stack.getItem() != Items.ELYTRA) continue;
+
+            int stackRemaining = getRemainingDurability(stack);
+
+            if (stackRemaining > AutoConfig.getConfigHolder(ModConfig.class).getConfig().lowestDurabilityWhenSwap + AutoConfig.getConfigHolder(ModConfig.class).getConfig().swapRandomDurability) {
+                validSlots.add(i);
+            }
+        }
+
+        if (!validSlots.isEmpty()) {
+            int swapSlot = validSlots.get(rand.nextInt(validSlots.size()));
+            swapSlots(swapSlot, 38, player); // 38=胸甲槽
+        }
     }
 
     private static boolean check(){
         if (MinecraftClient.getInstance().player == null) return false;
         if(!(AutoConfig.getConfigHolder(ModConfig.class).getConfig()).isAutoSwapOn) return false;
         if (!(MinecraftClient.getInstance().player.getEquippedStack(EquipmentSlot.CHEST).getItem() == Items.ELYTRA)) return false;
-        if(MinecraftClient.getInstance().player.getEquippedStack(EquipmentSlot.CHEST).getDamage() <= getLowestDurability()) return false;
         if(isSwapProcessing) return false;
-        return true;
+        // D 老师的神奇修复
+        ClientPlayerEntity player = MinecraftClient.getInstance().player;
+        ItemStack chestStack = player.getEquippedStack(EquipmentSlot.CHEST);
+        int remaining = getRemainingDurability(chestStack);
+        int threshold = AutoConfig.getConfigHolder(ModConfig.class).getConfig().lowestDurabilityWhenSwap;
+        return (remaining <= threshold + randomDurability);
     }
 }
 
